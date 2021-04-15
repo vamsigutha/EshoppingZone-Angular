@@ -2,7 +2,10 @@
   <!-- side nav -->
 
   <div [ngClass]="collapseShow" class="container absolute z-20 h-auto mt-24">
-    <div (click)="toggleCollapseShow()" class="bg-gray-200 bg-opacity-40">
+    <div
+      (click)="toggleCollapseShow()"
+      class="bg-transparent bg-gray-800 bg-opacity-20"
+    >
       <div
         (click)="$event.stopPropagation()"
         class="z-40 flex flex-col w-64 h-screen bg-white shadow-md md:w-96"

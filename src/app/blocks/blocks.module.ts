@@ -5,6 +5,9 @@ import { BlocksRoutingModule } from './blocks-routing.module';
 import { AppComponent } from './root/app.component';
 import { SharedModule } from '@shared/shared.module';
 import { HeaderModule } from '../features/header/header.module';
+import { ProductcategoryModule } from '../features/productcategory/productcategory.module';
+import { CategoryLoadingComponent } from './components/category-loading/category-loading.component';
+import { ProductDetailModule } from '../features/product-detail/product-detail.module';
 
 
 
@@ -14,7 +17,9 @@ import { HeaderModule } from '../features/header/header.module';
     CommonModule,
     BlocksRoutingModule,
     SharedModule,
-    HeaderModule
+    HeaderModule,
+    ProductcategoryModule,
+    ProductDetailModule
   ],
   exports:[AppComponent]
   

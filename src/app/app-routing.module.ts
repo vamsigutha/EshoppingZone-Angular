@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductsCategoryComponent } from './features/products/components/products-category/products-category.component';
+import { ProductThumbnailCardComponent } from '@shared/components/product-thumbnail-card/product-thumbnail-card.component';
+import { ProductDetailComponent } from './features/product-detail/product-detail.component';
+import { ProductcategoryComponent } from './features/productcategory/productcategory.component';
 
 const routes: Routes = [
- {path:':category/:subCategory',component:ProductsCategoryComponent}
+ {path:':category/:subCategory',component:ProductcategoryComponent},
+ {path:':category/:subCategory/:productId',component:ProductDetailComponent}
 ];
 
 @NgModule({
