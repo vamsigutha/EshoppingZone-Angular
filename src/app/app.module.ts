@@ -7,6 +7,9 @@ import { AppComponent } from './blocks/root/app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { CoreModule } from '@core/core.module';
 import { SharedModule } from '@shared/shared.module';
+import { AuthModule } from './auth/auth.module';
+import {ReactiveFormsModule} from "@angular/forms";
+import { CartModule } from './features/cart/cart.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { SharedModule } from '@shared/shared.module';
     AppRoutingModule,
     BlocksModule,
     HttpClientModule,
-    CoreModule
+    CoreModule,
+    AuthModule,
+    ReactiveFormsModule,
+    CartModule
   ],
   providers: [],
   bootstrap: [AppComponent],

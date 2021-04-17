@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { CategoryService } from './services/category.service';
 
 @Component({
@@ -37,11 +38,16 @@ export class HeaderComponent implements OnInit {
 
   categories:Observable<any>;
 
+  isAuthenticated:boolean=false;
 
-  constructor(private categorySerice:CategoryService) { }
+
+  constructor(private categorySerice:CategoryService,private authService:AuthService) {
+
+   }
 
   ngOnInit() {
     this.categories = this.categorySerice.getCategory();
+    this.isAuthenticated = this.authService.isAuthenticated();
   }
 
 
