@@ -9,6 +9,7 @@ export class CartService {
 
 getUrl="http://localhost:8765/api/v1/cart/get-cart";
 deleteUrl="http://localhost:8765/api/v1/cart/delete-item";
+updateUrl = "http://localhost:8765/api/v1/cart/update-item";
 params;
 headers;
 token;
@@ -22,6 +23,12 @@ getCart(){
   this.makeUrl();
   return this.http.get(this.getUrl,{'params':this.params,'headers':this.headers});
 
+}
+
+updateItem(item){
+  this.makeUrl();
+  this.httpOptions = {'params':this.params,'headers':this.headers,'body':item};
+  return this.http.put(this.updateUrl,item,{'params':this.params,'headers':this.headers});
 }
 
 deleteItem(item){

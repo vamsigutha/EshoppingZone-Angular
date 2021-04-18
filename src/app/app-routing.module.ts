@@ -12,12 +12,11 @@ import { ProductcategoryComponent } from './features/productcategory/productcate
 const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignUpComponent},
-  {path:'cart',component:CartComponent},
- {path:':category/:subCategory',component:ProductcategoryComponent,
-  canActivate:[RoleGuardService],
+  {path:'cart',component:CartComponent,canActivate:[RoleGuardService],
   data:{
     expectedRole:'ROLE_CUSTOMER'
-  }
+  }},
+ {path:':category/:subCategory',component:ProductcategoryComponent
 },
  {path:':category/:subCategory/:productId',component:ProductDetailComponent}
 ];
