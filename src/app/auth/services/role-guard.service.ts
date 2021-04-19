@@ -27,12 +27,12 @@ canActivate(route:ActivatedRouteSnapshot):boolean{
       !this.auth.isAuthenticated() || 
       tokenPayload["scope"] !== expectedRole
     ) {
-      this.router.navigate(['login']);
+      this.router.navigate(['login'],{ state: { redirect: this.router.url } });
       return false;
     }
     return true;
     }
-    this.router.navigate(['login']);
+    this.router.navigate(['login'],{ state: { redirect: this.router.url } });
     return false;
     
 

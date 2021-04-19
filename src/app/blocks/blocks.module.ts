@@ -8,6 +8,7 @@ import { HeaderModule } from '../features/header/header.module';
 import { ProductcategoryModule } from '../features/productcategory/productcategory.module';
 import { CategoryLoadingComponent } from './components/category-loading/category-loading.component';
 import { ProductDetailModule } from '../features/product-detail/product-detail.module';
+import { SearchProductModule } from '../features/search-product/search-product.module';
 
 
 

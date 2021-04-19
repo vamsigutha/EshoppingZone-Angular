@@ -10,6 +10,9 @@ import { SharedModule } from '@shared/shared.module';
 import { AuthModule } from './auth/auth.module';
 import {ReactiveFormsModule} from "@angular/forms";
 import { CartModule } from './features/cart/cart.module';
+import { ProfileModule } from './features/profile/profile.module';
+import { SearchProductModule } from './features/search-product/search-product.module';
+import { HomeModule } from './features/home/home.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { CartModule } from './features/cart/cart.module';
     CoreModule,
     AuthModule,
     ReactiveFormsModule,
-    CartModule
+    CartModule,
+    ProfileModule,
+    SearchProductModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

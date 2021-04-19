@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { CategoryService } from './services/category.service';
@@ -8,7 +9,7 @@ import { CategoryService } from './services/category.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit,OnChanges {
 
   collapseShow = "hidden";
   isCollapsed = true;
@@ -41,12 +42,16 @@ export class HeaderComponent implements OnInit {
   isAuthenticated:boolean=false;
 
 
-  constructor(private categorySerice:CategoryService,private authService:AuthService) {
+  constructor(private categorySerice:CategoryService,private authService:AuthService,private router:Router,private route:ActivatedRoute) {
 
    }
 
   ngOnInit() {
     this.categories = this.categorySerice.getCategory();
+    this.isAuthenticated = this.authService.isAuthenticated();
+  }
+
+  ngOnChanges(){
     this.isAuthenticated = this.authService.isAuthenticated();
   }
 
@@ -85,7 +90,7 @@ export class HeaderComponent implements OnInit {
   }
 
   search(e){
-
+    this.router.navigate(["search",e.target.value]);
   }
 
 

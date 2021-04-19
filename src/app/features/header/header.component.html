@@ -159,7 +159,7 @@
           </div>
         </a>
 
-        <a routerLink="/profile">
+        <a *ngIf="isAuthenticated" routerLink="/profile">
           <div class="flex ml-3 mr-1 cursor-pointer">
             <app-user-circle></app-user-circle>
           </div>

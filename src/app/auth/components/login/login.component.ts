@@ -30,8 +30,9 @@ export class LoginComponent implements OnInit {
     }
     this.loginService.login(this.data).subscribe((res)=>{
       console.log(res);
+      const { redirect } = window.history.state;
       localStorage.setItem('token',res["accessToken"]);
-      this.router.navigate["/"];
+      this.router.navigateByUrl(redirect || '/');
     },(error)=>{
       console.log(error.error.message);
     })

@@ -10,14 +10,38 @@ import { NonFilledRatingStarComponent } from './components/non-filled-rating-sta
 import { SingleProductDetailComponent } from './components/single-product-detail/single-product-detail.component';
 import { UserCircleComponent } from './components/user-circle/user-circle.component';
 import { TrashIconComponent } from './components/trash-icon/trash-icon.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
-  declarations: [LogoComponent,ChevronDownComponent,ProductThumbnailCardComponent,FilledRatingStarComponent,NonFilledRatingStarComponent,SingleProductDetailComponent,UserCircleComponent,TrashIconComponent],
+  declarations: [
+    LogoComponent,
+    ChevronDownComponent,
+    ProductThumbnailCardComponent,
+    FilledRatingStarComponent,
+    NonFilledRatingStarComponent,
+    SingleProductDetailComponent,
+    UserCircleComponent,
+    TrashIconComponent,
+    CarouselComponent,
+    FooterComponent
+  ],
   imports: [
     CommonModule,
     SharedRoutingModule
   ],
-  exports:[LogoComponent,ChevronDownComponent,ProductThumbnailCardComponent,FilledRatingStarComponent,NonFilledRatingStarComponent,SingleProductDetailComponent,UserCircleComponent,TrashIconComponent]
+  exports:[
+    LogoComponent,
+    ChevronDownComponent,
+    ProductThumbnailCardComponent,
+    FilledRatingStarComponent,
+    NonFilledRatingStarComponent,
+    SingleProductDetailComponent,
+    UserCircleComponent,
+    TrashIconComponent,
+    CarouselComponent,
+    FooterComponent
+  ]
 })
 export class SharedModule { }
