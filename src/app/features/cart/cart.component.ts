@@ -21,6 +21,11 @@ export class CartComponent implements OnInit{
     }); 
   }
 
+  onClickCheckout(){
+    localStorage.setItem("cart",JSON.stringify(this.cart));
+    this.router.navigate(["/","checkout"]);
+  }
+
   increaseQuantity(item){
     item.quantity = item.quantity+1;
     console.log(item.quantity);

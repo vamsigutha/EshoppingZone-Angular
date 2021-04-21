@@ -28,7 +28,7 @@ export class SingleProductDetailComponent implements OnInit, OnChanges {
 
   ngOnChanges(){
     console.log(this.product);
-    this.currentImage = this.product["images"][0];
+    this.currentImage = this.product?.images[0];
     this.images = this.product.images;
     console.log(this.images);
   }

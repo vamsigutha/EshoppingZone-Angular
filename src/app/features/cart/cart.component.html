@@ -137,11 +137,13 @@
           <span>Total cost</span>
           <span>${{ cart.totalPrice + 10 }}</span>
         </div>
-        <button
-          class="w-full py-3 text-sm font-semibold text-white uppercase bg-indigo-500 hover:bg-indigo-600"
-        >
-          Checkout
-        </button>
+        <a routeLink="/checkout">
+          <button (click)="onClickCheckout()"
+            class="w-full py-3 text-sm font-semibold text-white uppercase bg-indigo-500 hover:bg-indigo-600"
+          >
+            Checkout
+          </button>
+        </a>
       </div>
     </div>
   </div>

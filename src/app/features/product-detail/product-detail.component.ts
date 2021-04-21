@@ -10,7 +10,7 @@ import { ProductDetailService } from './services/product-detail.service';
 })
 export class ProductDetailComponent implements OnInit {
 
-  productDetails:any;
+  productDetails:any=null;
   constructor(private route:ActivatedRoute,private productDetailService:ProductDetailService) { }
 
   ngOnInit() {

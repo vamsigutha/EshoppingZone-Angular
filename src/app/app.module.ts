@@ -13,6 +13,7 @@ import { CartModule } from './features/cart/cart.module';
 import { ProfileModule } from './features/profile/profile.module';
 import { SearchProductModule } from './features/search-product/search-product.module';
 import { HomeModule } from './features/home/home.module';
+import { PaymentModule } from './features/payment/payment.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HomeModule } from './features/home/home.module';
     CartModule,
     ProfileModule,
     SearchProductModule,
-    HomeModule
+    HomeModule,
+    PaymentModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -13,7 +13,7 @@ import { SearchProductModule } from '../features/search-product/search-product.m
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,CategoryLoadingComponent],
   imports: [
     CommonModule,
     BlocksRoutingModule,
@@ -22,7 +22,7 @@ import { SearchProductModule } from '../features/search-product/search-product.m
     ProductcategoryModule,
     ProductDetailModule
   ],
-  exports:[AppComponent]
+  exports:[AppComponent,CategoryLoadingComponent]
   
 })
 export class BlocksModule {  }

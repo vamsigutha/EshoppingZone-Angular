@@ -39,6 +39,63 @@ export class HeaderComponent implements OnInit,OnChanges {
 
   categories:Observable<any>;
 
+  homeAndKitchen = {
+    category:"garden",
+    sub_category:[
+      "Kids' Home Store",
+      "Kitchen & Dining",
+      "Bedding",
+      "Furniture",
+      "Home Décor",
+      "Wall Art",
+      "Lighting & Ceiling Fans",
+      "Event & Party Supplies",
+      "Heating, Cooling & Air Quality",
+      "Irons & Steamers",
+      "Vacuums & Floor Care",
+      "Cleaning Supplies"
+    ]
+  }
+
+  mensFashion = {
+    category:"fashion-mens",
+    sub_category:["Clothing", "Shoes", "Jewelry", "Watches"]
+  }
+
+  womensFashion = {
+    category:"fashion-womens",
+    sub_category:["Clothing", "Shoes", "Jewelry", "Watches", "Handbags"]
+  }
+
+  electronics = {
+    category:"electronics",
+    sub_category: [
+      "Accessories & Supplies",
+      "Camera & Photo",
+      "Car & Vehicle Electronics",
+      "Cell Phones & Accessories",
+      "Computers & Accessories",
+      "GPS, Finders & Accessories",
+      "Headphones",
+      "Home Audio"
+    ]
+  }
+
+  appliances = {
+    category:"appliances",
+    sub_category:[
+      "Refrigerators, Freezers & Ice Makers",
+      "Laundry Appliances",
+      "Ranges, Ovens & Cooktops",
+      "Microwave Ovens",
+      "Small Kitchen Appliances",
+      "Heating, Cooling & Air Quality",
+      "Vacuums & Floor Care",
+      "Garbage Disposals & Compactors",
+      "Parts & Accessories"
+    ]
+  }
+
   isAuthenticated:boolean=false;
 
 
