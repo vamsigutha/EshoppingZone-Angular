@@ -14,6 +14,7 @@ import { ProfileModule } from './features/profile/profile.module';
 import { SearchProductModule } from './features/search-product/search-product.module';
 import { HomeModule } from './features/home/home.module';
 import { PaymentModule } from './features/payment/payment.module';
+import { DeliveryAgentModule } from './features/delivery-agent/delivery-agent.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PaymentModule } from './features/payment/payment.module';
     ProfileModule,
     SearchProductModule,
     HomeModule,
-    PaymentModule
+    PaymentModule,
+    DeliveryAgentModule
   ],
   providers: [],
   bootstrap: [AppComponent],

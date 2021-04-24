@@ -8,6 +8,7 @@ import decode from 'jwt-decode';
 export class ProfileService {
 getUrl="http://localhost:8765/api/v1/auth/get-user";
 updateUrl="http://localhost:8765/api/v1/auth/update-user";
+getOrdersUrl="http://localhost:8765/api/v1/order/get-order-by-user-id";
 params;
 headers;
 token;
@@ -22,6 +23,12 @@ getUserData(){
 updateUser(data){
   this.makeUrl();
   return this.http.put(this.updateUrl,data,{'headers':this.headers});
+}
+
+getOrders(){
+  this.makeUrl();
+  this.params = new HttpParams().set("userId",this.tokenPayload["id"]);
+  return this.http.get(this.getOrdersUrl,{'params':this.params,'headers':this.headers});
 }
 
 makeUrl(){

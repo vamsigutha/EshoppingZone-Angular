@@ -18,11 +18,13 @@ export class SearchProductComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params:Params)=>{
       this.title = params.title;
+      this.searchService.getProducts(this.title).subscribe((res)=>{
+        this.products = [];
+        this.products = res["products"];
+        console.log(res);
+      });
     });
-    this.searchService.getProducts(this.title).subscribe((res)=>{
-      this.products = res["products"];
-      console.log(res);
-    });
+    
   }
 
 

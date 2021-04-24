@@ -6,6 +6,7 @@ import { SignUpComponent } from './auth/components/sign-up/sign-up.component';
 import { AuthGuardService } from './auth/services/auth-guard.service';
 import { RoleGuardService } from './auth/services/role-guard.service';
 import { CartComponent } from './features/cart/cart.component';
+import { DeliveryAgentComponent } from './features/delivery-agent/delivery-agent.component';
 import { HomeComponent } from './features/home/home.component';
 import { CheckoutComponent } from './features/payment/component/checkout/checkout.component';
 import { SuccessComponent } from './features/payment/component/success/success.component';
@@ -19,6 +20,10 @@ const routes: Routes = [
   {path:"",component:HomeComponent},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignUpComponent},
+  {path:'delivery-agent',component:DeliveryAgentComponent,canActivate:[RoleGuardService],
+  data:{
+    expectedRole:'ROLE_DELIVERYAGENT'
+  }},
   {path:'search/:title',component:SearchProductComponent},
   {path:'checkout',component:CheckoutComponent},
   {path:'payment',component:PaymentComponent},

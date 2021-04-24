@@ -1,5 +1,5 @@
 <app-single-product-detail
-  *ngIf="productDetails === 'null'; else loading"
+  *ngIf="productDetails != 'null'; else loading"
   [product]="productDetails"
 ></app-single-product-detail>
 

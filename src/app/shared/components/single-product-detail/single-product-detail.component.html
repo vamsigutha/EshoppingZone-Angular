@@ -62,7 +62,7 @@
           <span
             *ngIf="product.price.current_price > 0"
             class="text-2xl font-medium text-gray-900 title-font"
-            >${{ product.price.current_price }}</span
+            >₹{{ product.price.current_price }}</span
           >
           <span
             *ngIf="!(product.price.current_price > 0)"

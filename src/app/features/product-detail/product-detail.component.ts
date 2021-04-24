@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ProductDetails } from '@core/models/product-details';
 import { ProductDetailService } from './services/product-detail.service';
@@ -11,11 +11,16 @@ import { ProductDetailService } from './services/product-detail.service';
 export class ProductDetailComponent implements OnInit {
 
   productDetails:any=null;
-  constructor(private route:ActivatedRoute,private productDetailService:ProductDetailService) { }
+  constructor(private ref: ChangeDetectorRef,private route:ActivatedRoute,private productDetailService:ProductDetailService) { }
 
   ngOnInit() {
     this.route.params.subscribe((params:Params)=>{
-      this.productDetailService.getProduct(params.productId).subscribe(result=>this.productDetails = result);
+      this.productDetailService.getProduct(params.productId).subscribe(result=>{
+        this.productDetails = result;
+        this.ref.detectChanges();
+        console.log(this.productDetails);
+      });
+      
     });
   }
 

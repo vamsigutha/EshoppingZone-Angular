@@ -1,7 +1,7 @@
 <section
   class="flex items-end justify-between h-48 p-10 pl-48 pr-48 bg-gray-800"
 >
-  <div class="text-white text-7xl">Vamsi Krishna</div>
+  <div class="text-white text-7xl">{{ data?.username }}</div>
   <div>
     <button
       (click)="onClickSignOut()"
@@ -19,7 +19,18 @@
       <div class="flex flex-col space-y-2">
         <div class="text-3xl">Personal Data</div>
         <hr />
-        <form [formGroup]="profileForm" (ngSubmit)="onProfileSubmit()" class="flex flex-col">
+        <div class="flex flex-col p-5 space-y-2 bg-gray-100 border">
+          <div>{{ data?.username }} - {{ data?.email }}</div>
+          <div>
+            {{ data?.mobileNumber }}
+          </div>
+        </div>
+
+        <form
+          [formGroup]="profileForm"
+          (ngSubmit)="onProfileSubmit()"
+          class="flex flex-col"
+        >
           <div class="w-2/5 mt-4">
             <label
               class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
@@ -60,7 +71,8 @@
             />
           </div>
           <div class="w-2/5 mt-8 mb-5">
-            <button [disabled]="!profileForm.valid"
+            <button
+              [disabled]="!profileForm.valid"
               class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-700 rounded hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
             >
               Save
@@ -78,13 +90,23 @@
   <div class="container flex flex-col w-4/5 p-5 space-y-5 bg-white">
     <div class="text-3xl">Addresses</div>
     <hr />
-    <div class="flex flex-col w-2/3 p-5 text-lg bg-gray-200 shadow">
-      <div>1-30, JangamreddyPeta, Putlur</div>
-      <div>Anatapur, Andhra Pradesh</div>
-      <div>515425</div>
+    <div
+      *ngFor="let address of addressList"
+      class="flex flex-col w-full p-5 text-lg bg-gray-100 shadow"
+    >
+      <div>
+        {{ address?.houseNumber }}, {{ address?.streetName }},
+        {{ address?.colonyName }}
+      </div>
+      <div>{{ address?.city }}, {{ address?.state }}</div>
+      <div>{{ address?.pincode }}</div>
     </div>
     <div class="w-2/3">
-      <form class="flex flex-col">
+      <form
+        [formGroup]="addressForm"
+        (ngSubmit)="onAddressSubmit()"
+        class="flex flex-col"
+      >
         <!-- row one -->
         <div class="flex space-x-2">
           <div class="mt-4">
@@ -190,23 +212,38 @@
 
 <!-- Orders -->
 
-<section class="pl-48 pr-48 mt-10">
+<section class="pl-48 pr-48 mt-10 mb-20">
   <div class="container w-4/5 p-5 bg-white">
     <div class="text-3xl">Orders</div>
     <hr />
-    <div class="flex flex-col mt-5">
-      <div class="flex justify-between p-5 bg-gray-300 shadow">
-        <div class="flex flex-col items-center">
-          <p>Order Id</p>
-          <p>12345</p>
+    <div class="flex flex-col mt-5 space-y-5">
+      <div
+        *ngFor="let order of ordersData"
+        class="flex flex-col justify-between p-5 bg-gray-100 shadow"
+      >
+        <div class="flex flex-row items-center space-x-5">
+          <p class="text-indigo-600">Order Id :</p>
+          <p>{{ order["orderId"] }}</p>
         </div>
-        <div class="flex flex-col items-center">
-          <p>Order Status</p>
-          <p>Received</p>
+        <div class="flex flex-row items-center space-x-5">
+          <p class="text-indigo-600">Order Status :</p>
+          <p>{{ order["orderStatus"] }}</p>
         </div>
-        <div class="flex flex-col items-center">
-          <p>Items</p>
-          <p>2</p>
+        <div class="flex flex-row items-center space-x-5">
+          <p class="text-indigo-600">Items :</p>
+          <p>{{ order.items.length }}</p>
+        </div>
+        <div class="flex flex-row items-center space-x-5">
+          <p class="text-indigo-600">Delivery Agent Id :</p>
+          <p>{{ order.deliveryAgentId }}</p>
+        </div>
+        <div class="flex flex-row items-center space-x-5">
+          <p class="text-indigo-600">Delivery To :</p>
+          <p>
+            {{ order.address.houseNumber }} {{ order.address.colonyName }}
+            {{ order.address.streetName }} {{ order.address.city }}
+            {{ order.address.state }} {{ order.address.pincode }}
+          </p>
         </div>
       </div>
     </div>
@@ -215,7 +252,7 @@
 
 <!-- Wallet -->
 
-<section class="pl-48 pr-48 mt-10 mb-10">
+<section class="hidden pl-48 pr-48 mt-10 mb-10">
   <div class="container w-4/5 p-5 bg-white">
     <div class="text-3xl">Wallet</div>
     <hr />
